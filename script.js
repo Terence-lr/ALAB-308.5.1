@@ -92,3 +92,16 @@ console.log('Original person object:', person)
 console.log('Incremented age in original:', incrementAge(person))
 console.log('Copied and incremented age:', copyAndIncrementAge(person))
 console.log('Original person after copy function:', person)
+
+// Part 4 & Part 5: Practical Applications and Reflection
+
+// Example usage for testing
+console.log('Sum of Array:', sumArray([1, 2, 3, 4, 5])) // Should output 15
+console.log('Average of Array:', averageArray([1, 2, 3, 4, 5])) // Should output 3
+console.log('Longest String:', longestString(['short', 'longer', 'longest'])) // Should output "longest"
+console.log(
+  'Strings Longer Than 3:',
+  stringsLongerThan(['say', 'hello', 'in', 'the', 'morning'], 3)
+) // ["hello", "morning"]
+
+printNumbers(5) // Should print numbers 1 to 5 recursively

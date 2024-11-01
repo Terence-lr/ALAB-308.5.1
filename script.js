@@ -6,6 +6,7 @@
 function sumArray(numbers) {
   return numbers.reduce((sum, num) => sum + num, 0)
 }
+
 // 2. Function to take an array of numbers and return the average
 function averageArray(numbers) {
   return sumArray(numbers) / numbers.length
@@ -32,14 +33,28 @@ function printNumbers(n) {
   }
 }
 
+// Testing Part 1 functions with varied values
+console.log('Sum of Array:', sumArray([10, 20, 30, 40, 50])) // Expected output: 150
+console.log('Average of Array:', averageArray([5, 10, 15])) // Expected output: 10
+console.log(
+  'Longest String:',
+  longestString(['apple', 'banana', 'cherry', 'blueberry'])
+) // Expected output: "blueberry"
+console.log(
+  'Strings Longer Than 4:',
+  stringsLongerThan(['hi', 'welcome', 'to', 'JavaScript'], 4)
+) // Expected output: ["welcome", "JavaScript"]
+
+printNumbers(3) // Should print 1, 2, 3 in sequence
+
 // Part 2: Thinking Methodically
 
 const data = [
-  { id: '42', name: 'Bruce', occupation: 'Knight', age: '41' },
-  { id: '48', name: 'Barry', occupation: 'Runner', age: '25' },
-  { id: '57', name: 'Bob', occupation: 'Fry Cook', age: '19' },
-  { id: '63', name: 'Blaine', occupation: 'Quiz Master', age: '58' },
-  { id: '7', name: 'Bilbo', occupation: 'None', age: '111' },
+  { id: '100', name: 'Alice', occupation: 'Engineer', age: '35' },
+  { id: '101', name: 'Zara', occupation: 'Pilot', age: '42' },
+  { id: '102', name: 'Mike', occupation: 'Chef', age: '22' },
+  { id: '103', name: 'Luna', occupation: 'Artist', age: '27' },
+  { id: '104', name: 'Omar', occupation: 'Teacher', age: '29' },
 ]
 
 // 1. Sort the array by age
@@ -48,9 +63,9 @@ const sortedByAge = data
   .sort((a, b) => parseInt(a.age) - parseInt(b.age))
 console.log('Sorted by Age:', sortedByAge)
 
-// 2. Filter the array to remove entries with an age greater than 50
-const filteredByAge = data.filter((person) => parseInt(person.age) <= 50)
-console.log('Filtered by Age <= 50:', filteredByAge)
+// 2. Filter the array to remove entries with an age greater than 30
+const filteredByAge = data.filter((person) => parseInt(person.age) <= 30)
+console.log('Filtered by Age <= 30:', filteredByAge)
 
 // 3. Map the array to change "occupation" to "job" and increment each age by 1
 const mappedData = data.map((person) => ({
@@ -86,22 +101,29 @@ function copyAndIncrementAge(obj) {
   return newObj
 }
 
-// Testing Part 3 functions
-const person = { name: 'Sample Person' }
-console.log('Original person object:', person)
-console.log('Incremented age in original:', incrementAge(person))
-console.log('Copied and incremented age:', copyAndIncrementAge(person))
-console.log('Original person after copy function:', person)
+// Testing Part 3 functions with new objects
+const personWithAge = { name: 'John Doe', age: 50 }
+const personWithoutAge = { name: 'Jane Smith' }
+
+console.log('Original person with age:', personWithAge)
+console.log('Incremented age in original:', incrementAge(personWithAge)) // Should increment age to 51
+console.log('Original person without age:', personWithoutAge)
+console.log(
+  'Copied and incremented age in person without age:',
+  copyAndIncrementAge(personWithoutAge)
+) // Should set age to 1 and add updated_at
+console.log('Original person after copy function:', personWithoutAge) // Verify age wasn't changed in original
 
 // Part 4 & Part 5: Practical Applications and Reflection
 
-// Example usage for testing
-console.log('Sum of Array:', sumArray([1, 2, 3, 4, 5])) // Should output 15
-console.log('Average of Array:', averageArray([1, 2, 3, 4, 5])) // Should output 3
-console.log('Longest String:', longestString(['short', 'longer', 'longest'])) // Should output "longest"
+// Additional Testing of Part 1 functions to confirm reusability
+console.log('Sum of Array:', sumArray([1, 2, 3, 4, 5])) // Expected output: 15
+console.log('Average of Array:', averageArray([1, 2, 3, 4, 5])) // Expected output: 3
+console.log('Longest String:', longestString(['short', 'longer', 'longest'])) // Expected output: "longest"
 console.log(
   'Strings Longer Than 3:',
   stringsLongerThan(['say', 'hello', 'in', 'the', 'morning'], 3)
-) // ["hello", "morning"]
+) // Expected output: ["hello", "morning"]
 
-printNumbers(5) // Should print numbers 1 to 5 recursively
+// Confirming recursive function behavior
+printNumbers(5) // Should print 1, 2, 3, 4, 5 in sequence

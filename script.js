@@ -31,3 +31,36 @@ function printNumbers(n) {
     console.log(n)
   }
 }
+// Part 2: Thinking Methodically
+
+const data = [
+  { id: '42', name: 'Bruce', occupation: 'Knight', age: '41' },
+  { id: '48', name: 'Barry', occupation: 'Runner', age: '25' },
+  { id: '57', name: 'Bob', occupation: 'Fry Cook', age: '19' },
+  { id: '63', name: 'Blaine', occupation: 'Quiz Master', age: '58' },
+  { id: '7', name: 'Bilbo', occupation: 'None', age: '111' },
+]
+
+// 1. Sort the array by age
+const sortedByAge = data
+  .slice()
+  .sort((a, b) => parseInt(a.age) - parseInt(b.age))
+console.log('Sorted by Age:', sortedByAge)
+
+// 2. Filter the array to remove entries with an age greater than 50
+const filteredByAge = data.filter((person) => parseInt(person.age) <= 50)
+console.log('Filtered by Age <= 50:', filteredByAge)
+
+// 3. Map the array to change "occupation" to "job" and increment each age by 1
+const mappedData = data.map((person) => ({
+  ...person,
+  job: person.occupation,
+  age: parseInt(person.age) + 1,
+}))
+console.log('Mapped Data (occupation to job and age incremented):', mappedData)
+
+// 4. Calculate the sum of the ages using reduce, then calculate the average age
+const totalAge = data.reduce((sum, person) => sum + parseInt(person.age), 0)
+const averageAge = totalAge / data.length
+console.log('Total Age:', totalAge)
+console.log('Average Age:', averageAge)

@@ -31,6 +31,7 @@ function printNumbers(n) {
     console.log(n)
   }
 }
+
 // Part 2: Thinking Methodically
 
 const data = [
@@ -64,3 +65,30 @@ const totalAge = data.reduce((sum, person) => sum + parseInt(person.age), 0)
 const averageAge = totalAge / data.length
 console.log('Total Age:', totalAge)
 console.log('Average Age:', averageAge)
+
+// Part 3: Thinking Critically
+
+// 1. Function to take an object and increment its age field
+function incrementAge(obj) {
+  if (!obj.hasOwnProperty('age')) obj.age = 0
+  obj.age++
+  obj.updated_at = new Date()
+  return obj
+}
+
+// 2. Function to take an object, make a copy, increment the age field in the copy, and return the copy
+function copyAndIncrementAge(obj) {
+  const newObj = {
+    ...obj,
+    age: obj.age ? obj.age + 1 : 1,
+    updated_at: new Date(),
+  }
+  return newObj
+}
+
+// Testing Part 3 functions
+const person = { name: 'Sample Person' }
+console.log('Original person object:', person)
+console.log('Incremented age in original:', incrementAge(person))
+console.log('Copied and incremented age:', copyAndIncrementAge(person))
+console.log('Original person after copy function:', person)
